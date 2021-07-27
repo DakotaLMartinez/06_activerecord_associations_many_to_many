@@ -32,47 +32,32 @@ Say we want our dog walking application to be able to handle the situation where
 - Create a many to many relationship between `Dog` and `Walk`
 - open up `./bin/console` and create a couple of dogs and a couple of walks and then associate the two.
 
-## Task 1 - has_many, through
+## Segment 2 - Task: Apply has_many, through
 
-We've discovered that we actually need to set up a many to many relationship between Computer and 
-2. In `lib/issue.rb`, create an `Issue` class that inherits from `ActiveRecord::Base` 
+For our issue tracking application, we want to:
+- give technicians the ability to keep track of the issues they're currently working on.
+- give technicians the ability to keep track of the computers they have worked with.
+- give technicians the ability to see which other technicians have worked on a computer. 
 
-3. Use an ActiveRecord association macro to create a relationship between an issue and a computer. Which type of relationship should you add here?
+To do that, we'll discovered that we actually need to set up a many to many relationship and utilize the `has_many, through` macro.
 
-4. Enter `./bin/console` and create a couple of issues for the `first_computer`. Use Sqlite Explorer to check your database to ensure the issues are created.
+1. In `lib/technician.rb`, create a `Technician` class that inherits from `ActiveRecord::Base`
 
-### Discussion Questions
-#### How did you create the issues table? 
+2. Add relationships between `Technician` and our `Issue` and `Computer` models.
 
-...
+3. Run the tests to ensure that the relationships are properly established.
 
-#### How would you describe the relationship between an issue and a computer?
-
-...
-#### When you use the association method to access the related computer, what does the SQL query look like?
-
-...
-
-
-## Help me build this out
-
-- Finish adding the one-to-many relationship between `Dog <== Walk`
-
-
-## Task 2 - has_many
-
-1. Update the Computer class to add an ActiveRecord association method that relates the Computer model to the Issue model.
-
-2. Open up `./bin/console` and use it to create an issue for a computer and then access that computer and view all of its issues. Confirm that you're able to call a method on either the issue or the computer and see the other object in the return value.
+4. Enter `./bin/console` and create a couple of computers, a couple of technicians and a couple of issues. Use Sqlite Explorer to check your database to ensure the appropriate records are created.
 
 ### Discussion Questions
-
-#### What are the database requirements for a has_many relationship? 
-
-...
-#### What about the belongs_to relationship?
+#### How many macros are involved in implementing the many to many relationship and where do they go? 
 
 ...
-#### What other examples of one-to-many relationships can you think of?
+
+#### What is a join model? Which of the 3 classes we defined here is a join model?
 
 ...
+
+## Group Discussion
+
+Practice building out models and migrations here [Group Discussion](https://hackmd.io/@dlm/phase4-lesson6-activerecord-associations-many-to-many-discussion-72721)
