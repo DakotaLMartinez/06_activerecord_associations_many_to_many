@@ -1,6 +1,5 @@
 class Computer < ActiveRecord::Base
   has_many :issues
-  has_many :technicians, through: :issues
 
   def sleep
     update(asleep: true)
