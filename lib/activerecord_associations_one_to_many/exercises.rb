@@ -17,3 +17,7 @@ def second_computer
     model_year: 2020
   )
 end
+
+def lennon
+  Dog.find_or_create_by(name: "Lennon Snow", age: "11 months", breed: "Pomeranian")
+end

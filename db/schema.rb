@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_26_210717) do
+ActiveRecord::Schema.define(version: 2021_07_27_160744) do
 
   create_table "computers", force: :cascade do |t|
     t.string "brand"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2021_07_26_210717) do
     t.integer "model_year"
     t.boolean "asleep"
     t.datetime "last_backed_up_at"
+  end
+
+  create_table "dog_walks", force: :cascade do |t|
+    t.boolean "number_two"
+    t.integer "dog_id", null: false
+    t.integer "walk_id", null: false
+    t.index ["dog_id"], name: "index_dog_walks_on_dog_id"
+    t.index ["walk_id"], name: "index_dog_walks_on_walk_id"
   end
 
   create_table "dogs", force: :cascade do |t|
@@ -40,11 +48,9 @@ ActiveRecord::Schema.define(version: 2021_07_26_210717) do
   end
 
   create_table "walks", force: :cascade do |t|
-    t.boolean "number_two"
-    t.integer "dog_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["dog_id"], name: "index_walks_on_dog_id"
+    t.datetime "time"
   end
 
 end
